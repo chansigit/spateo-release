@@ -1683,7 +1683,11 @@ class MuSIC:
                         else (
                             0.5
                             if len(receptor_cols) == 3
-                            else 0.4 if len(receptor_cols) == 4 else 0.33 if len(receptor_cols) >= 5 else 1
+                            else 0.4
+                            if len(receptor_cols) == 4
+                            else 0.33
+                            if len(receptor_cols) >= 5
+                            else 1
                         )
                     )
                     # If overlap is greater than threshold, combine columns
@@ -1728,7 +1732,11 @@ class MuSIC:
                                     else (
                                         0.5
                                         if len(combined_cols) == 3
-                                        else 0.4 if len(combined_cols) == 4 else 0.33 if len(combined_cols) >= 5 else 1
+                                        else 0.4
+                                        if len(combined_cols) == 4
+                                        else 0.33
+                                        if len(combined_cols) >= 5
+                                        else 1
                                     )
                                 )
                                 combined_receptor_df = receptor_df[(receptor_df[combined_cols] != 0).any(axis=1)]

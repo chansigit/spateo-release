@@ -750,11 +750,7 @@ def PCA_reduction(
     data_mat: Union[np.ndarray, torch.Tensor],
     reduced_dim: int = 64,
     center: bool = True,
-) -> Tuple[
-    Union[np.ndarray, torch.Tensor],
-    Union[np.ndarray, torch.Tensor],
-    Union[np.ndarray, torch.Tensor],
-]:
+) -> Tuple[Union[np.ndarray, torch.Tensor], Union[np.ndarray, torch.Tensor], Union[np.ndarray, torch.Tensor],]:
     """PCA dimensionality reduction using SVD decomposition
 
     Args:

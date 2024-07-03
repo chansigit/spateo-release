@@ -1114,9 +1114,9 @@ def plot_multiple_genes_3D(
 
     # Assign individual gene labels where only one gene is expressed:
     for gene in genes:
-        adata.obs.loc[(adata.obs[gene] == True) & (adata.obs["gene_expr_category"] == "None"), "gene_expr_category"] = (
-            gene
-        )
+        adata.obs.loc[
+            (adata.obs[gene] == True) & (adata.obs["gene_expr_category"] == "None"), "gene_expr_category"
+        ] = gene
 
     traces = []
     for gene, color in zip(genes + ["Multiple genes"], colors):
