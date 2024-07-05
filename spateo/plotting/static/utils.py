@@ -594,12 +594,13 @@ def _matplotlib_points(
     # Color by values
     elif values is not None:
         # main_debug("drawing points by values")
-        cmap_ = copy.copy(matplotlib.cm.get_cmap(cmap))
+        cmap_ = copy.copy(matplotlib.colormaps[cmap])
         cmap_.set_bad("lightgray")
 
         with warnings.catch_warnings():
             warnings.simplefilter("ignore")
-            matplotlib.cm.register_cmap(name=cmap_.name, cmap=cmap_, override_builtin=True)
+            if cmap_.name not in matplotlib.colormaps():
+                matplotlib.colormaps.register(name=cmap_.name, cmap=cmap_)
 
         if values.shape[0] != points.shape[0]:
             raise ValueError(
@@ -795,7 +796,7 @@ def _matplotlib_points(
             cb.locator = MaxNLocator(nbins=3, integer=True)
             cb.update_ticks()
 
-        cmap = matplotlib.cm.get_cmap(cmap)
+        cmap = matplotlib.colormaps[cmap]
         colors = cmap(values)
     # No color (just pick the midpoint of the cmap)
     else:
