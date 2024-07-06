@@ -4,7 +4,7 @@ colorcet>=2.0.1
 cvxopt>=1.2.3
 csbdeep>=0.6.3
 descartes
--e git+https://github.com/chansigit/dynamo-release.git
+dynamo-release>=1.4.0
 folium>=0.12.1
 geopandas>=0.10.2
 gpytorch
