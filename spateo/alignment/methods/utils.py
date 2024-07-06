@@ -140,7 +140,14 @@ def normalize_coords(
 
     # normalize_scale now becomes to a list
     normalize_scale_list = []
-    normalize_scale_list = nx.zeros((len(coords, )), type_as=coords[0])
+    normalize_scale_list = nx.zeros(
+        (
+            len(
+                coords,
+            )
+        ),
+        type_as=coords[0],
+    )
     normalize_mean_list = []
     for i in range(len(coords)):
         normalize_mean = nx.einsum("ij->j", coords[i]) / coords[i].shape[0]

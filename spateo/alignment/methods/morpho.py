@@ -240,7 +240,7 @@ def BA_align(
     batch_size: int = 1000,
     partial_robust_level: float = 25,
 ) -> Tuple[Optional[Tuple[AnnData, AnnData]], np.ndarray, np.ndarray]:
-    """_summary_
+    """core function for spateo pairwise alignment
 
     Args:
         sampleA: Sample A that acts as reference.
